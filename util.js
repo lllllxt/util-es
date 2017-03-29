@@ -143,3 +143,23 @@ Date.prototype.formatStr = function (fmt) { //author: meizz
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 };
+
+/**
+ * [在ios10上，为了提高Safari中网站的辅助功能，即使网站在视口中设置了user-scalable = no，用户也可以手动缩放。解决方案：添加监听事件来阻止缩放]
+ * @return {[type]} [description]
+ */
+window.onload=function () {
+    document.addEventListener('touchstart',function (event) {
+        if(event.touches.length>1){
+            event.preventDefault();
+        }
+    });
+    var lastTouchEnd=0;
+    document.addEventListener('touchend',function (event) {
+        var now=(new Date()).getTime();
+        if(now-lastTouchEnd<=300){
+            event.preventDefault();
+        }
+        lastTouchEnd=now;
+    },false);
+}
