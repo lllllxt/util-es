@@ -162,4 +162,4 @@ window.onload=function () {
         }
         lastTouchEnd=now;
     },false);
-}
+};
