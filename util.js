@@ -1,15 +1,15 @@
 /**
  * [判空]
- * @param  {String |Object |Array}  para [null]
+ * @param  {String |Object |Array |Number}  para [null]
  * @return {Boolean}      [true | false]
  */
 function isEmpty(para) {
     if (typeof(para) === "undefined") {
         return true;
     } else if (typeof(para) === "string") {
-        return (para === '' || para === undefined) ? true : false;
+        return (para === '');
     } else if (para instanceof Array) {
-        return (para.length == 0) ? true : false;
+        return (para.length === 0);
     } else if (typeof(para) === "object" && !(para instanceof Array)) {
         var para_name;
         for (para_name in para) {
@@ -17,7 +17,7 @@ function isEmpty(para) {
         }
         return true;
     } else if (typeof(para) === "number") {
-        throw('The function isEmpty(para) : "para" can not be number!');
+        isEmpty(para+'');
     }
 }
 // isEmpty(132);
@@ -64,7 +64,8 @@ function isWeChatBorder(){
  * @return {Boolean}       [description]
  *
  *  example:
- *  <input type="text" onkeydown="return onlyNum(event,true);" required>
+ *  <input type="text" onkeydown="return onlyNum(event,true);" onkeyup="this.value=this.value.replace(/[\u4e00-\u9fa5]|[(~！@#￥%……&*（）——+{}：“《》？、。，‘’；】【\-)+]/g,'')" 
+    onpaste="return false" ondrop="return false" required>
  *
  *  onkeydown不加return会导致不兼容firefox/ie
  *
