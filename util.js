@@ -7,7 +7,7 @@ function isEmpty(para) {
     if (typeof(para) === "undefined") {
         return true;
     } else if (typeof(para) === "string") {
-        return (para === '');
+        return (para.trim() === '');
     } else if (para instanceof Array) {
         return (para.length === 0);
     } else if (typeof(para) === "object" && !(para instanceof Array)) {
