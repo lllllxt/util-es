@@ -4,20 +4,22 @@
  * @return {Boolean}      [true | false]
  */
 function isEmpty(para) {
-    if (typeof(para) === "undefined") {
+    if (typeof (para) === "undefined") {
         return true;
-    } else if (typeof(para) === "string") {
+    } else if (typeof (para) === "string") {
         return (para.trim() === '');
     } else if (para instanceof Array) {
         return (para.length === 0);
-    } else if (typeof(para) === "object" && !(para instanceof Array)) {
+    } else if (para instanceof Date) {
+        return false;
+    } else if (typeof (para) === "object" && !(para instanceof Array)) {
         var para_name;
         for (para_name in para) {
             return false;
         }
         return true;
-    } else if (typeof(para) === "number") {
-        isEmpty(para+'');
+    } else if (typeof (para) === "number") {
+        isEmpty(para + '');
     }
 }
 // isEmpty(132);
