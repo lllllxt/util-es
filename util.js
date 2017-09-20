@@ -166,3 +166,83 @@ window.onload=function () {
         lastTouchEnd=now;
     },false);
 };
+
+/**
+ * https://segmentfault.com/q/1010000004323418
+ *
+ * [图片压缩]
+ *
+ * @param  {File} file [文件流]
+ * @param  {Object} option [quality 图片品质，times 图片大小倍数]
+ * @return {function} callback [回调函数，参数(err,data) data是Blob 对象]
+ *
+ *  example:
+ *    compressImg(file, { quality: .5, times: .5 }, function(err, data) => {}
+ *
+ * PS:
+ * canvas.toDataURL 只能压缩image/jpeg 或 image/webp... (quality)
+ * 其他格式可以通过修改图片大小以达到压缩效果 (times)
+ */
+compressImg(file, option, callback) {
+        
+        var OPT = {
+            quality: .92,
+            times: 1
+        }
+        Object.assign(OPT, option)
+
+        if (!window.FileReader || !window.Blob) {
+            return errorHandler('您的浏览器不支持图片压缩')();
+        }
+
+        var reader = new FileReader();
+        var mimeType = file.type || 'image/jpeg';
+
+        reader.onload = createImage;
+        reader.onerror = errorHandler('图片读取失败！');
+        reader.readAsDataURL(file);
+
+        function createImage() {
+            var dataURL = this.result;
+            var image = new Image();
+            image.onload = compressImage;
+            image.onerror = errorHandler('图片加载失败');
+            image.src = dataURL;
+        }
+
+        function compressImage() {
+            var canvas = document.createElement('canvas');
+            var ctx;
+            var dataURI;
+            var result;
+
+            canvas.width = this.naturalWidth * OPT.times;
+            canvas.height = this.naturalHeight * OPT.times;
+            ctx = canvas.getContext('2d');
+            ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+            dataURI = canvas.toDataURL(mimeType, option.quality);
+            result = dataURIToBlob(dataURI);
+
+            callback(null, result);
+        }
+
+        function dataURIToBlob(dataURI) {
+            var type = dataURI.match(/data:([^;]+)/)[1];
+            var base64 = dataURI.replace(/^[^,]+,/, '');
+            var byteString = atob(base64);
+
+            var ia = new Uint8Array(byteString.length);
+            for (var i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+
+            return new Blob([ia], { type: type });
+        }
+
+        function errorHandler(message) {
+            return function () {
+                var error = new Error('Compression Error:', message);
+                callback(error, null);
+            };
+        }
+    }
