@@ -251,26 +251,58 @@ function compressImg(file, option, callback) {
     }
 }
 
-/** 
- * 不改变内存地址的深拷贝
- * 
- * @description 用于解决普通深拷贝 拷贝对象数组,或函数组的对象时,vue视图数据数据无法实时改变问题.
+/**
+ * 不改变内存地址的深拷贝,用法和Object.assgin(target,...source)一样
+ *
+ * @argument target The target object to copy to.
+ * @argument source The source object from which to copy properties.
+ * @description 用于解决普通深拷贝 拷贝对象数组,或函数组的对象时,vue视图数据数据无法实时改变问题
  * @author liuxiaotang
  * @since 2018/04/20
- * 
+ *
  */
-function _assign(arg1, arg2) {
-    for (const i in arg2) {
-        if (arg2.hasOwnProperty(i)) {
-            if (typeof arg2[i] === 'object') {
-                if (arg1[i] !== null && typeof arg1[i] === 'object') {
-                    _assign(arg1[i], arg2[i])
-                } else {
-                    arg1[i] = arg2[i]
+function _assign() {
+    function _copy(arg1, arg2) {
+        if (arg1 === null || typeof arg1 === 'undefined') {
+            // arg1 不能为null或undefined
+            console.error('第一个参数不能为null或undefined')
+            arg1 = undefined
+            return arg1
+        } else if (typeof arg1 !== typeof arg2) {
+            // arg1 与 arg1 类型不一致时,arg1不变
+            return arg1
+        } else {
+            for (const i in arg2) {
+                if (arg2.hasOwnProperty(i)) {
+                    if (typeof arg2[i] === 'object') {
+                        if (arg1[i] !== null && typeof arg1[i] === 'object') {
+                            // arg1[i]不为 null 且为Object时,递归
+                            _copy(arg1[i], arg2[i])
+                        } else {
+                            // arg1[i]为 null 或不为Object时
+                            arg1[i] = arg2[i]
+                        }
+                    } else {
+                        arg1[i] = arg2[i]
+                    }
                 }
-            } else {
-                arg1[i] = arg2[i]
             }
+            return arg1
         }
+    }
+
+    const args = arguments
+    if (args[0] === null || typeof args[0] === 'undefined') {
+        // args[0] 不能为null或undefined
+        console.error('第一个参数不能为null或undefined')
+        args[0] = undefined
+        return args[0]
+    } else {
+        let len = args.length
+        while (len > 0) {
+            args[len - 1] = _copy(args[len - 1], args[len])
+            len--
+        }
+        return args[0]
     }
 }
