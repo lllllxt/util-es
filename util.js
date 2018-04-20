@@ -4,21 +4,21 @@
  * @return {Boolean}      [true | false]
  */
 function isEmpty(para) {
-    if (typeof (para) === "undefined") {
+    if (typeof(para) === "undefined") {
         return true;
-    } else if (typeof (para) === "string") {
+    } else if (typeof(para) === "string") {
         return (para.trim() === '');
     } else if (para instanceof Array) {
         return (para.length === 0);
     } else if (para instanceof Date) {
         return false;
-    } else if (typeof (para) === "object" && !(para instanceof Array)) {
+    } else if (typeof(para) === "object" && !(para instanceof Array)) {
         var para_name;
         for (para_name in para) {
             return false;
         }
         return true;
-    } else if (typeof (para) === "number") {
+    } else if (typeof(para) === "number") {
         isEmpty(para + '');
     }
 }
@@ -48,11 +48,11 @@ function GetRequest() {
  * 判断是否微信浏览器
  * @returns {Boolean}
  */
-function isWeChatBorder(){
+function isWeChatBorder() {
     var ua = window.navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -72,31 +72,31 @@ function isWeChatBorder(){
  *  onkeydown不加return会导致不兼容firefox/ie
  *
  */
-function onlyNum(event,length){
+function onlyNum(event, length) {
     var input = event.target.value;
-    var point= (length === undefined || /\./.exec(input)) ? 0 : 1;
+    var point = (length === undefined || /\./.exec(input)) ? 0 : 1;
 
-    var e = (event) ? event : ((window.event) ? window.event : "");//兼容IE和Firefox获得keyBoardEvent对象
-    var key = e.keyCode?e.keyCode:e.which;//兼容IE和Firefox获得keyBoardEvent对象的键值
+    var e = (event) ? event : ((window.event) ? window.event : ""); //兼容IE和Firefox获得keyBoardEvent对象
+    var key = e.keyCode ? e.keyCode : e.which; //兼容IE和Firefox获得keyBoardEvent对象的键值
 
-    if( e.shiftKey) { //shift + any key
-        e.returnValue=false;
+    if (e.shiftKey) { //shift + any key
+        e.returnValue = false;
         return false;
     }
 
-    if((key>=48 && key<=57) || (key>=96 && key<=105) || (point && (key==190||key==110))){ // 数字键
-    }else if(key==8||key==9||key==13||(key>=37&&key<=40||key==46)){//功能键
-    }else{
-        e.returnValue=false;
+    if ((key >= 48 && key <= 57) || (key >= 96 && key <= 105) || (point && (key == 190 || key == 110))) { // 数字键
+    } else if (key == 8 || key == 9 || key == 13 || (key >= 37 && key <= 40 || key == 46)) { //功能键
+    } else {
+        e.returnValue = false;
         return false;
     }
 
-    if (input.indexOf('.')!=-1) {
+    if (input.indexOf('.') != -1) {
         var decimal = input.substring(input.indexOf('.') + 1);
-        if (decimal.length >= length){
-            if(key==8||key==9||key==13||(key>=37&&key<=40||key==46)){//功能键
-            }else{
-                e.returnValue=false;
+        if (decimal.length >= length) {
+            if (key == 8 || key == 9 || key == 13 || (key >= 37 && key <= 40 || key == 46)) { //功能键
+            } else {
+                e.returnValue = false;
                 return false;
             }
         }
@@ -104,15 +104,17 @@ function onlyNum(event,length){
 }
 
 function getSessionJson(key) {
-    isEmpty(sessionStorage.getItem(key))?sessionStorage.setItem(key,JSON.stringify({})):'';
+    isEmpty(sessionStorage.getItem(key)) ? sessionStorage.setItem(key, JSON.stringify({})) : '';
     return JSON.parse(sessionStorage.getItem(key));
 }
-function setSessionJson(key,json) {
-    sessionStorage.setItem(key,JSON.stringify(json)) ;
+
+function setSessionJson(key, json) {
+    sessionStorage.setItem(key, JSON.stringify(json));
     return sessionStorage.getItem(key);
 }
+
 function removeSession(key) {
-    if(!isEmpty(key))sessionStorage.removeItem(key);
+    if (!isEmpty(key)) sessionStorage.removeItem(key);
 }
 
 /**
@@ -129,15 +131,15 @@ function removeSession(key) {
  * @param  {String} fmt [指定格式的String]
  * @return {String}     [指定格式的String]
  */
-Date.prototype.formatStr = function (fmt) { //author: meizz
+Date.prototype.formatStr = function(fmt) { //author: meizz
     var o = {
-        "M+": this.getMonth() + 1,                 //月份
-        "d+": this.getDate(),                    //日
-        "h+": this.getHours(),                   //小时
-        "m+": this.getMinutes(),                 //分
-        "s+": this.getSeconds(),                 //秒
+        "M+": this.getMonth() + 1, //月份
+        "d+": this.getDate(), //日
+        "h+": this.getHours(), //小时
+        "m+": this.getMinutes(), //分
+        "s+": this.getSeconds(), //秒
         "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-        "S": this.getMilliseconds()             //毫秒
+        "S": this.getMilliseconds() //毫秒
     };
     if (/(y+)/.test(fmt))
         fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -151,20 +153,20 @@ Date.prototype.formatStr = function (fmt) { //author: meizz
  * [在ios10上，为了提高Safari中网站的辅助功能，即使网站在视口中设置了user-scalable = no，用户也可以手动缩放。解决方案：添加监听事件来阻止缩放]
  * @return {[type]} [description]
  */
-window.onload=function () {
-    document.addEventListener('touchstart',function (event) {
-        if(event.touches.length>1){
+window.onload = function() {
+    document.addEventListener('touchstart', function(event) {
+        if (event.touches.length > 1) {
             event.preventDefault();
         }
     });
-    var lastTouchEnd=0;
-    document.addEventListener('touchend',function (event) {
-        var now=(new Date()).getTime();
-        if(now-lastTouchEnd<=300){
+    var lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        var now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
             event.preventDefault();
         }
-        lastTouchEnd=now;
-    },false);
+        lastTouchEnd = now;
+    }, false);
 };
 
 /**
@@ -183,66 +185,92 @@ window.onload=function () {
  * canvas.toDataURL 只能压缩image/jpeg 或 image/webp... (quality)
  * 其他格式可以通过修改图片大小以达到压缩效果 (times)
  */
-compressImg(file, option, callback) {
-        
-        var OPT = {
-            quality: .92,
-            times: 1
+function compressImg(file, option, callback) {
+
+    var OPT = {
+        quality: .92,
+        times: 1
+    }
+    Object.assign(OPT, option)
+
+    if (!window.FileReader || !window.Blob) {
+        return errorHandler('您的浏览器不支持图片压缩')();
+    }
+
+    var reader = new FileReader();
+    var mimeType = file.type || 'image/jpeg';
+
+    reader.onload = createImage;
+    reader.onerror = errorHandler('图片读取失败！');
+    reader.readAsDataURL(file);
+
+    function createImage() {
+        var dataURL = this.result;
+        var image = new Image();
+        image.onload = compressImage;
+        image.onerror = errorHandler('图片加载失败');
+        image.src = dataURL;
+    }
+
+    function compressImage() {
+        var canvas = document.createElement('canvas');
+        var ctx;
+        var dataURI;
+        var result;
+
+        canvas.width = this.naturalWidth * OPT.times;
+        canvas.height = this.naturalHeight * OPT.times;
+        ctx = canvas.getContext('2d');
+        ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+        dataURI = canvas.toDataURL(mimeType, option.quality);
+        result = dataURIToBlob(dataURI);
+
+        callback(null, result);
+    }
+
+    function dataURIToBlob(dataURI) {
+        var type = dataURI.match(/data:([^;]+)/)[1];
+        var base64 = dataURI.replace(/^[^,]+,/, '');
+        var byteString = atob(base64);
+
+        var ia = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
         }
-        Object.assign(OPT, option)
 
-        if (!window.FileReader || !window.Blob) {
-            return errorHandler('您的浏览器不支持图片压缩')();
-        }
+        return new Blob([ia], {
+            type: type
+        });
+    }
 
-        var reader = new FileReader();
-        var mimeType = file.type || 'image/jpeg';
+    function errorHandler(message) {
+        return function() {
+            var error = new Error('Compression Error:', message);
+            callback(error, null);
+        };
+    }
+}
 
-        reader.onload = createImage;
-        reader.onerror = errorHandler('图片读取失败！');
-        reader.readAsDataURL(file);
-
-        function createImage() {
-            var dataURL = this.result;
-            var image = new Image();
-            image.onload = compressImage;
-            image.onerror = errorHandler('图片加载失败');
-            image.src = dataURL;
-        }
-
-        function compressImage() {
-            var canvas = document.createElement('canvas');
-            var ctx;
-            var dataURI;
-            var result;
-
-            canvas.width = this.naturalWidth * OPT.times;
-            canvas.height = this.naturalHeight * OPT.times;
-            ctx = canvas.getContext('2d');
-            ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-            dataURI = canvas.toDataURL(mimeType, option.quality);
-            result = dataURIToBlob(dataURI);
-
-            callback(null, result);
-        }
-
-        function dataURIToBlob(dataURI) {
-            var type = dataURI.match(/data:([^;]+)/)[1];
-            var base64 = dataURI.replace(/^[^,]+,/, '');
-            var byteString = atob(base64);
-
-            var ia = new Uint8Array(byteString.length);
-            for (var i = 0; i < byteString.length; i++) {
-                ia[i] = byteString.charCodeAt(i);
+/** 
+ * 不改变内存地址的深拷贝
+ * 
+ * @description 用于解决普通深拷贝 拷贝对象数组,或函数组的对象时,vue视图数据数据无法实时改变问题.
+ * @author liuxiaotang
+ * @since 2018/04/20
+ * 
+ */
+function _assign(arg1, arg2) {
+    for (const i in arg2) {
+        if (arg2.hasOwnProperty(i)) {
+            if (typeof arg2[i] === 'object') {
+                if (arg1[i] !== null && typeof arg1[i] === 'object') {
+                    _assign(arg1[i], arg2[i])
+                } else {
+                    arg1[i] = arg2[i]
+                }
+            } else {
+                arg1[i] = arg2[i]
             }
-
-            return new Blob([ia], { type: type });
-        }
-
-        function errorHandler(message) {
-            return function () {
-                var error = new Error('Compression Error:', message);
-                callback(error, null);
-            };
         }
     }
+}
