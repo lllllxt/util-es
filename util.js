@@ -19,7 +19,7 @@ function isEmpty(para) {
         }
         return true;
     } else if (typeof(para) === "number") {
-        isEmpty(para + '');
+        return isEmpty(para + '');
     }
 }
 // isEmpty(132);
