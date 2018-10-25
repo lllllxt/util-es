@@ -29,7 +29,10 @@ var getSession = function getSession(key) {
  * @param second 过期时间(s)
  * @returns {any}
  */
-var setSession = function setSession(key, dataSource, second) {
+var setSession = function setSession(key) {
+    var dataSource = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+    var second = arguments[2];
+
     var result = {};
     if (second) {
         var d = new Date();

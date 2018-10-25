@@ -26,7 +26,7 @@ const getLocal = function (key) {
  * @param second 过期时间(s)
  * @returns {any}
  */
-const setLocal = function (key, dataSource, second) {
+const setLocal = function (key, dataSource = null, second) {
     let result = {};
     if (second) {
         const d = new Date();

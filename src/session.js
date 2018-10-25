@@ -3,7 +3,7 @@
  * @param key
  * @returns {any}
  */
-const getSession = function (key) {
+const getSession = function(key) {
     let result = null;
     let _session = JSON.parse(sessionStorage.getItem(key));
     let isObj = Object.prototype.toString.call(_session) === '[object Object]';
@@ -26,7 +26,7 @@ const getSession = function (key) {
  * @param second 过期时间(s)
  * @returns {any}
  */
-const setSession = function (key, dataSource, second) {
+const setSession = function(key, dataSource = null, second) {
     let result = {};
     if (second) {
         const d = new Date();
@@ -44,7 +44,7 @@ const setSession = function (key, dataSource, second) {
  * 移除sessionStorage
  * @param key
  */
-const removeSession = function (key) {
+const removeSession = function(key) {
     key && sessionStorage.removeItem(key);
 };
 
