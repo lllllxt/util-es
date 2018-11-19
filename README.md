@@ -30,8 +30,8 @@ const Util = request('util-es')
 
 对象名 | 描述
 ---|---
-[Session](#session-&-local) | 对sessionStorage的封装
-[Local](#session-&-local) | 对localStorage的封装
+[Session](#session--local) | 对sessionStorage的封装
+[Local](#session--local) | 对localStorage的封装
 [Cookie](#cookie) | 对document.cookie的封装
 
 ###### Session & Local
