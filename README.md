@@ -17,7 +17,7 @@ const Util = request('util-es')
 ```
 
 
-### 通过<script>标签引用
+### 通过```<script>```标签引用
 [util.min.js](https://github.com/lllllxt/util-es/blob/master/util.min.js)
 
 此方法是向window对象中注册一个 ```util``` 对象
