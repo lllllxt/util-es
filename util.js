@@ -77,7 +77,7 @@ var isEmpty = function isEmpty(input) {
     if (input.length === 0 || input.size === 0) return true;
     if (input.length > 0 || input.size > 0) return false;
     // Date or Number
-    if (input instanceof Date || typeof para === 'number') return false;
+    if (input instanceof Date || typeof input === 'number') return false;
     // Object
     if (Object.keys(input).length > 0) return false;
     return true;
