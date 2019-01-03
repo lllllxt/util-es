@@ -38,9 +38,9 @@ var _local = require('./local');
 
 var _local2 = _interopRequireDefault(_local);
 
-var _cookie = require('./cookie');
+var _cookies = require('./cookies');
 
-var _cookie2 = _interopRequireDefault(_cookie);
+var _cookies2 = _interopRequireDefault(_cookies);
 
 var _isEmpty = require('./isEmpty');
 
@@ -55,11 +55,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = {
     Local: _local2.default,
     Session: _session2.default,
-    Cookie: _cookie2.default,
+    Cookies: _cookies2.default,
     isEmpty: _isEmpty2.default,
     uuid: _uuid2.default
 };
-},{"./cookie":1,"./isEmpty":3,"./local":4,"./session":5,"./uuid":7}],3:[function(require,module,exports){
+},{"./cookies":1,"./isEmpty":3,"./local":4,"./session":5,"./uuid":7}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -242,5 +242,7 @@ exports.default = function () {
     return uuid.join('');
 };
 
-;
+; /**
+   * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
+   */
 },{}]},{},[6]);

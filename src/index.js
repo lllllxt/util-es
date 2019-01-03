@@ -1,6 +1,6 @@
 import Session from './session';
 import Local from './local';
-import Cookie from './cookie';
+import Cookies from './cookies';
 
 import isEmpty from './isEmpty';
 import uuid from './uuid';
@@ -8,7 +8,7 @@ import uuid from './uuid';
 module.exports = {
     Local,
     Session,
-    Cookie,
+    Cookies,
     isEmpty,
     uuid
 }

@@ -8,9 +8,9 @@ var _local = require('./local');
 
 var _local2 = _interopRequireDefault(_local);
 
-var _cookie = require('./cookie');
+var _cookies = require('./cookies');
 
-var _cookie2 = _interopRequireDefault(_cookie);
+var _cookies2 = _interopRequireDefault(_cookies);
 
 var _isEmpty = require('./isEmpty');
 
@@ -25,7 +25,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 module.exports = {
     Local: _local2.default,
     Session: _session2.default,
-    Cookie: _cookie2.default,
+    Cookies: _cookies2.default,
     isEmpty: _isEmpty2.default,
     uuid: _uuid2.default
 };

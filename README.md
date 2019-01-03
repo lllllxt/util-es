@@ -32,7 +32,7 @@ const Util = request('util-es')
 ---|---
 [Session](#session--local) | 对sessionStorage的封装
 [Local](#session--local) | 对localStorage的封装
-[Cookie](#cookie) | 对document.cookie的封装
+[Cookies](#cookies) | 对document.cookie的封装
 
 ###### Session & Local
 
@@ -48,7 +48,7 @@ Local的方法与Session一致
 
 :exclamation::exclamation:使用Session & Local存储对象时, 请勿使用```$$ExpiryTime```作为属性,这是设置过期时间的关键字
 
-###### Cookie
+###### Cookies
 单纯的对cookie封装, 仅支持存储字符串和设置时间
 方法 | header 2
 ---|---

@@ -22,4 +22,6 @@ exports.default = function () {
     return uuid.join('');
 };
 
-;
+; /**
+   * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
+   */
