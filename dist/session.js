@@ -13,6 +13,7 @@ var getSession = function getSession(key) {
         if (new Date().getTime() > new Date(_session.$$ExpiryTime).getTime()) {
             // 过期
             result = null;
+            sessionStorage.removeItem(key);
         } else {
             result = _session.data;
         }
@@ -57,5 +58,7 @@ var removeSession = function removeSession(key) {
 module.exports = {
     get: getSession,
     set: setSession,
-    remove: removeSession
+    remove: removeSession,
+    clear: sessionStorage.clear,
+    key: sessionStorage.key
 };

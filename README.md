@@ -30,9 +30,9 @@ const Util = request('util-es')
 
 对象名 | 描述
 ---|---
-[Session](#session--local) | 对sessionStorage的封装
-[Local](#session--local) | 对localStorage的封装
-[Cookies](#cookies) | 对document.cookie的封装
+[Session](#session-&-local) | 对sessionStorage的封装
+[Local](#session-&-local) | 对localStorage的封装
+[Cookie](#cookie) | 对document.cookie的封装
 
 ###### Session & Local
 
@@ -44,11 +44,14 @@ const Util = request('util-es')
 Session.get(String key) | 获取对应key的session
 Session.set(String key, * value, Number second) | 设置session, second(非必传 单位: 秒)
 Session.remove(String key) | 移除对应key的session
+Session.key(Number key) | 获取对应索引的键名
+Session.clear() | 移除所有session
+
 Local的方法与Session一致
 
 :exclamation::exclamation:使用Session & Local存储对象时, 请勿使用```$$ExpiryTime```作为属性,这是设置过期时间的关键字
 
-###### Cookies
+###### Cookie
 单纯的对cookie封装, 仅支持存储字符串和设置时间
 方法 | header 2
 ---|---

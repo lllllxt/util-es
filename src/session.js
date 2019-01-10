@@ -3,13 +3,14 @@
  * @param key
  * @returns {any}
  */
-const getSession = function(key) {
+const getSession = function (key) {
     let result = null;
     let _session = JSON.parse(sessionStorage.getItem(key));
     let isObj = Object.prototype.toString.call(_session) === '[object Object]';
     if (isObj && _session.$$ExpiryTime) {
         if ((new Date().getTime() > new Date(_session.$$ExpiryTime).getTime())) { // 过期
             result = null;
+            sessionStorage.removeItem(key)
         } else {
             result = _session.data;
         }
@@ -26,7 +27,7 @@ const getSession = function(key) {
  * @param second 过期时间(s)
  * @returns {any}
  */
-const setSession = function(key, dataSource = null, second) {
+const setSession = function (key, dataSource = null, second) {
     let result = {};
     if (second) {
         const d = new Date();
@@ -44,12 +45,14 @@ const setSession = function(key, dataSource = null, second) {
  * 移除sessionStorage
  * @param key
  */
-const removeSession = function(key) {
+const removeSession = function (key) {
     key && sessionStorage.removeItem(key);
 };
 
 module.exports = {
     get: getSession,
     set: setSession,
-    remove: removeSession
+    remove: removeSession,
+    clear: sessionStorage.clear,
+    key: sessionStorage.key
 }

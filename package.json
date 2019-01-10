@@ -1,6 +1,6 @@
 {
     "name": "util-es",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "js工具集",
     "main": "dist/index.js",
     "scripts": {

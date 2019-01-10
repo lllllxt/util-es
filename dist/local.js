@@ -13,6 +13,7 @@ var getLocal = function getLocal(key) {
         if (new Date().getTime() > new Date(_local.$$ExpiryTime).getTime()) {
             // 过期
             result = null;
+            localStorage.removeItem(key);
         } else {
             result = _local.data;
         }
@@ -57,5 +58,7 @@ var removeLocal = function removeLocal(key) {
 module.exports = {
     get: getLocal,
     set: setLocal,
-    remove: removeLocal
+    remove: removeLocal,
+    clear: localStorage.clear,
+    key: localStorage.key
 };

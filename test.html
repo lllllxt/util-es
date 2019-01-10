@@ -1,15 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-cn">
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>util-es</title>
+    <style>
+        @keyframes myAnimate {
+            0% {
+                background-position-x: 0%
+            }
+
+            100% {
+                background-position-x: 100%
+            }
+        }
+
+        html,
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: auto;
+            background-image: linear-gradient(#b6aeff, #fff)
+        }
+
+        h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            font-size: 90px;
+            color: transparent;
+            /* background-image: linear-gradient(90deg, #ff6464, #fdd1d1, #ff8aa3, #ff6464, #fdd1d1, #ff8aa3, #ff6464); */
+            background-image: linear-gradient(90deg, #ab3f4f, #d5bfb1, #809e82, #ab3f4f, #d5bfb1, #809e82, #ab3f4f);
+            background-size: 200% 100%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            animation: myAnimate 3s linear 0s infinite normal none running;
+            /* animation: myAnimate duration timing-function delay iteration-count direction fill-mode; */
+
+        }
+    </style>
 </head>
 
 <body>
-    <script src="util.min.js"></script>
+    <h1 title="">util-es</h1>
 </body>
+
+<script src="util.min.js"></script>
 
 </html>
