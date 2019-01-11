@@ -53,6 +53,6 @@ module.exports = {
     get: getSession,
     set: setSession,
     remove: removeSession,
-    clear: sessionStorage.clear,
-    key: sessionStorage.key
+    clear: () => sessionStorage.clear(),
+    key: () => sessionStorage.key()
 }

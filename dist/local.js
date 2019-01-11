@@ -59,6 +59,10 @@ module.exports = {
     get: getLocal,
     set: setLocal,
     remove: removeLocal,
-    clear: localStorage.clear,
-    key: localStorage.key
+    clear: function clear() {
+        return localStorage.clear();
+    },
+    key: function key() {
+        return localStorage.key();
+    }
 };

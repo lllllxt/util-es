@@ -59,6 +59,10 @@ module.exports = {
     get: getSession,
     set: setSession,
     remove: removeSession,
-    clear: sessionStorage.clear,
-    key: sessionStorage.key
+    clear: function clear() {
+        return sessionStorage.clear();
+    },
+    key: function key() {
+        return sessionStorage.key();
+    }
 };

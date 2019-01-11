@@ -145,8 +145,12 @@ module.exports = {
     get: getLocal,
     set: setLocal,
     remove: removeLocal,
-    clear: localStorage.clear,
-    key: localStorage.key
+    clear: function clear() {
+        return localStorage.clear();
+    },
+    key: function key() {
+        return localStorage.key();
+    }
 };
 },{}],5:[function(require,module,exports){
 'use strict';
@@ -210,8 +214,12 @@ module.exports = {
     get: getSession,
     set: setSession,
     remove: removeSession,
-    clear: sessionStorage.clear,
-    key: sessionStorage.key
+    clear: function clear() {
+        return sessionStorage.clear();
+    },
+    key: function key() {
+        return sessionStorage.key();
+    }
 };
 },{}],6:[function(require,module,exports){
 'use strict';
