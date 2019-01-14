@@ -1,4 +1,5 @@
 const { isEmpty } = require('../dist/index.js')
+console.log('----------------------test isEmpty----------------------')
 
 console.assert(!isEmpty(' '), '一个空格')
 console.assert(!isEmpty('string'), '字符串')
@@ -15,5 +16,3 @@ console.assert(isEmpty(new Map()), 'Map')
 console.assert(isEmpty(new Set()), 'Set')
 console.assert(isEmpty(null), 'null')
 console.assert(isEmpty(undefined), 'undefined')
-
-console.log('all pass')

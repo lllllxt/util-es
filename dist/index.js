@@ -16,6 +16,10 @@ var _isEmpty = require('./isEmpty');
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
+var _isObject = require('./isObject');
+
+var _isObject2 = _interopRequireDefault(_isObject);
+
 var _uuid = require('./uuid');
 
 var _uuid2 = _interopRequireDefault(_uuid);
@@ -27,5 +31,6 @@ module.exports = {
     Session: _session2.default,
     Cookies: _cookies2.default,
     isEmpty: _isEmpty2.default,
+    isObject: _isObject2.default,
     uuid: _uuid2.default
 };

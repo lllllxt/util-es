@@ -46,6 +46,10 @@ var _isEmpty = require('./isEmpty');
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
+var _isObject = require('./isObject');
+
+var _isObject2 = _interopRequireDefault(_isObject);
+
 var _uuid = require('./uuid');
 
 var _uuid2 = _interopRequireDefault(_uuid);
@@ -57,9 +61,10 @@ module.exports = {
     Session: _session2.default,
     Cookies: _cookies2.default,
     isEmpty: _isEmpty2.default,
+    isObject: _isObject2.default,
     uuid: _uuid2.default
 };
-},{"./cookies":1,"./isEmpty":3,"./local":4,"./session":5,"./uuid":7}],3:[function(require,module,exports){
+},{"./cookies":1,"./isEmpty":3,"./isObject":4,"./local":5,"./session":6,"./uuid":8}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -85,6 +90,21 @@ var isEmpty = function isEmpty(input) {
 };
 exports.default = isEmpty;
 },{}],4:[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * 判断是否对对象
+ * 
+ */
+
+var isObject = function isObject(input) {
+  var _type = typeof input === 'undefined' ? 'undefined' : _typeof(input);
+  return input !== null && (_type === 'object' || _type === 'function');
+};
+module.exports = isObject;
+},{}],5:[function(require,module,exports){
 'use strict';
 
 /**
@@ -153,7 +173,7 @@ module.exports = {
         return localStorage.key();
     }
 };
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 'use strict';
 
 /**
@@ -222,7 +242,7 @@ module.exports = {
         return sessionStorage.key();
     }
 };
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 var _index = require('./index');
@@ -232,7 +252,7 @@ var _index2 = _interopRequireDefault(_index);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.util = _index2.default;
-},{"./index":2}],7:[function(require,module,exports){
+},{"./index":2}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -260,4 +280,4 @@ exports.default = function () {
 ; /**
    * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
    */
-},{}]},{},[6]);
+},{}]},{},[7]);
