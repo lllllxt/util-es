@@ -12,5 +12,5 @@ module.exports = {
     Cookies,
     isEmpty,
     isObject,
-    uuid
+    uuid,
 }

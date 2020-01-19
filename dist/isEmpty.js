@@ -1,8 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 /**
  * 判空
  * @param {any} input
@@ -21,4 +18,4 @@ var isEmpty = function isEmpty(input) {
     if (Object.keys(input).length === 0) return true;
     return false;
 };
-exports.default = isEmpty;
+module.exports = isEmpty;

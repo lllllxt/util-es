@@ -67,9 +67,6 @@ module.exports = {
 },{"./cookies":1,"./isEmpty":3,"./isObject":4,"./local":5,"./session":6,"./uuid":8}],3:[function(require,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 /**
  * 判空
  * @param {any} input
@@ -88,7 +85,7 @@ var isEmpty = function isEmpty(input) {
     if (Object.keys(input).length === 0) return true;
     return false;
 };
-exports.default = isEmpty;
+module.exports = isEmpty;
 },{}],4:[function(require,module,exports){
 'use strict';
 
@@ -255,11 +252,10 @@ window.util = _index2.default;
 },{"./index":2}],8:[function(require,module,exports){
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-exports.default = function () {
+/**
+ * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
+ */
+module.export = function () {
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
     var uuid = new Array(32);
     var rnd = 0;
@@ -276,8 +272,4 @@ exports.default = function () {
     }
     return uuid.join('');
 };
-
-; /**
-   * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
-   */
 },{}]},{},[7]);

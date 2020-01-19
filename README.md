@@ -73,7 +73,7 @@ uuid() | 生成并返回一个uuid(不带 ```-``` 的)
 * [uglifyjs](https://www.npmjs.com/package/uglify-js)
 
 ## 其他
-第一次写工具, 有问题欢迎交流, 轻喷 :bow:
+有问题欢迎交流, 轻喷 :bow:
 
 欢迎PR或提交issues :smiley:
 

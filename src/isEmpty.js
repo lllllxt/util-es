@@ -3,7 +3,7 @@
  * @param {any} input
  * @return { bollean }
  */
-const isEmpty = function(input) {
+const isEmpty = function (input) {
     // null or undefined
     if (input === null || input === undefined) return true;
     // Array or String
@@ -16,4 +16,4 @@ const isEmpty = function(input) {
     if (Object.keys(input).length === 0) return true
     return false
 }
-export default isEmpty
+module.exports = isEmpty
