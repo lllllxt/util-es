@@ -23,14 +23,10 @@ describe('test Local', () => {
         expect(Local.get(SK2)).toBeNull()
     })
 
-    Local.set(SK3, a, 1)
-    const c = Local.get(SK3)
     test('应返回null', () => {
-        expect(c).toEqual(a)
-        jest.useFakeTimers()
-        setTimeout(() => {
-            expect(Local.get(SK3)).toBeNull()
-        }, 1500)
-        jest.runAllTimers()
+        Local.set(SK3, a, 1)
+        expect(Local.get(SK3)).toEqual(a)
+        Local.set(SK3, a, -1)
+        expect(Local.get(SK3)).toBeNull()
     })
 })

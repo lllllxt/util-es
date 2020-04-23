@@ -23,16 +23,10 @@ describe('test Session', () => {
         expect(Session.get(SK2)).toBeNull()
     })
 
-    Session.set(SK3, a, 1)
-    const c = Session.get(SK3)
     test('应返回null', () => {
-        expect(c).toEqual(a)
-        jest.useFakeTimers()
-        setTimeout(() => {
-            const c = Session.get(SK3)
-            expect(c).toBeNull()
-        }, 1500)
-        jest.advanceTimersByTime(1500)
-        // jest.runAllTimers()
+        Session.set(SK3, a, 1)
+        expect(Session.get(SK3)).toEqual(a)
+        Session.set(SK3, a, -1)
+        expect(Session.get(SK3)).toBeNull()
     })
 })
