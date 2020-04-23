@@ -68,10 +68,6 @@ isEmpty(* param) | 判断传入数据是否为空字符或对象 ( ```{}``` ```[
 uuid() | 生成并返回一个uuid(不带 ```-``` 的)
 
 
-## Built With
-* [browserify](https://www.npmjs.com/package/browserify)
-* [uglifyjs](https://www.npmjs.com/package/uglify-js)
-
 ## 其他
 有问题欢迎交流, 轻喷 :bow:
 

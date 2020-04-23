@@ -1,14 +1,13 @@
 {
     "name": "util-es",
-    "version": "0.1.10",
+    "version": "1.0.0",
     "description": "js工具集",
-    "main": "dist/index.js",
+    "main": "util.min.js",
     "scripts": {
-        "start": "npm run build && npm run browserify && npm run uglifyjs && npm test",
-        "build": "babel src --out-dir dist --presets env",
-        "browserify": "browserify dist/util.js > util.js",
-        "uglifyjs": "uglifyjs util.js -c -m -o util.min.js",
-        "test": "node test"
+        "start": "npm run build && npm run uglify && npm run test",
+        "build": "rollup -c build/rollup.config.js -o util.js",
+        "uglify": "rollup -c build/rollup.config.js -o util.min.js --uglify",
+        "test": "jest --collectCoverage"
     },
     "repository": {
         "type": "git",
@@ -22,14 +21,16 @@
     "homepage": "https://github.com/lllllxt/util-es#readme",
     "files": [
         "util.js",
-        "util.min.js",
-        "dist"
+        "util.min.js"
     ],
     "dependencies": {},
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
-        "browserify": "^16.2.3",
-        "uglify-js": "^3.4.9"
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "babel-jest": "^25.4.0",
+        "jest": "^25.4.0",
+        "rollup": "^1.32.0",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-uglify": "^6.0.4"
     }
 }
