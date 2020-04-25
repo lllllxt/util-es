@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587796441344" clover="3.2.0">
-  <project timestamp="1587796441345" name="All files">
+<coverage generated="1587797139150" clover="3.2.0">
+  <project timestamp="1587797139150" name="All files">
     <metrics statements="90" coveredstatements="90" conditionals="57" coveredconditionals="57" methods="18" coveredmethods="18" elements="165" coveredelements="165" complexity="0" loc="90" ncloc="90" packages="1" files="7" classes="7"/>
     <file name="cookies.js" path="E:\github\util-es\src\cookies.js">
       <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>

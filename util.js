@@ -202,17 +202,26 @@
      * @param {any} input
      * @return { bollean }
      */
+    function getType(input) {
+      if (input === null) return 'null';
+      if (input === undefined) return 'undefined';
+      var type = Object.prototype.toString.call(input).slice(8, -1).toLowerCase();
+      if (type === 'string' && _typeof(input) === 'object') return 'object';else return type;
+    }
+
     var isEmpty = function isEmpty(input) {
-      // null or undefined
-      if (input === null || input === undefined) return true; // Array or String
+      var type = getType(input); // null or undefined
 
-      if (input instanceof Array || typeof input === 'string') return !input.length; // Map or Set
+      if (type === 'null' || type === 'undefined') return true; // Array or String
 
-      if (input instanceof Map || input instanceof Set) return !input.size; // Date or Number
+      if (type === 'array' || typeof input === 'string') return !input.length; // Map or Set
 
-      if (input instanceof Date || typeof input === 'number' || typeof input === 'boolean') return false; // Object
+      if (type === 'map' || type === 'set') return !input.size; // Date or Number/Bigint or Boolean 不管具体是什么都应该为true
 
-      if (_typeof(input) === 'object' && Object.keys(input).length === 0) return true;
+      if (['date', 'number', 'bigint', 'boolean'].includes(type)) return false; // Object
+
+      if (type === 'object' && Object.keys(input).length === 0) return true;
+      console.warn("isEmpty\u6682\u672A\u517C\u5BB9 '".concat(type, "' \u7C7B\u578B, \u9ED8\u8BA4\u8FD4\u56DEfalse"));
       return false;
     };
 
