@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for isEmpty.js</title>
+    <title>Code coverage report for util-es/src/isEmpty.js</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="prettify.css" />
-    <link rel="stylesheet" href="base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(sort-arrow-sprite.png);
+            background-image: url(../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> isEmpty.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">util-es/src</a> isEmpty.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">4.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>1/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>26/26</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">7.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>1/14</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -93,26 +93,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -121,27 +121,27 @@
  * @return { bollean }
  */
 &nbsp;
-function getType(input) {
-    if (input === null) return 'null'
-    if (input === undefined) return 'undefined'
-    const type = Object.prototype.toString.call(input).slice(8, -1).toLowerCase()
-    if (type === 'string' &amp;&amp; typeof input === 'object') return 'object'
-    else return type
+function <span class="fstat-no" title="function not covered" >getType(</span>input) {
+<span class="cstat-no" title="statement not covered" >    if (input === null) <span class="cstat-no" title="statement not covered" >return 'null'</span></span>
+<span class="cstat-no" title="statement not covered" >    if (input === undefined) <span class="cstat-no" title="statement not covered" >return 'undefined'</span></span>
+    const type = <span class="cstat-no" title="statement not covered" >Object.prototype.toString.call(input).slice(8, -1).toLowerCase()</span>
+<span class="cstat-no" title="statement not covered" >    if (type === 'string' &amp;&amp; typeof obj === 'object') <span class="cstat-no" title="statement not covered" >return 'object'</span></span>
+    else <span class="cstat-no" title="statement not covered" >return type</span>
 }
-const isEmpty = function (input) {
-    const type = getType(input)
+const isEmpty = <span class="fstat-no" title="function not covered" >fu</span>nction (input) {
+    const type = <span class="cstat-no" title="statement not covered" >getType(input)</span>
     // null or undefined
-    if (type === 'null' || type === 'undefined') return true
+<span class="cstat-no" title="statement not covered" >    if (type === 'null' || type === 'undefined') <span class="cstat-no" title="statement not covered" >return true</span></span>
     // Array or String
-    if (type === 'array' || typeof input === 'string') return !input.length
+<span class="cstat-no" title="statement not covered" >    if (type === 'array' || typeof input === 'string') <span class="cstat-no" title="statement not covered" >return !input.length</span></span>
     // Map or Set
-    if (type === 'map' || type === 'set') return !input.size
+<span class="cstat-no" title="statement not covered" >    if (type === 'map' || type === 'set') <span class="cstat-no" title="statement not covered" >return !input.size</span></span>
     // Date or Number/Bigint or Boolean 不管具体是什么都应该为true
-    if (['date', 'number', 'bigint', 'boolean'].includes(type)) return false
+<span class="cstat-no" title="statement not covered" >    if (['date', 'number', 'bigint', 'boolean'].includes(type)) <span class="cstat-no" title="statement not covered" >return false</span></span>
     // Object
-    if (type === 'object' &amp;&amp; Object.keys(input).length === 0) return true
-    console.warn(`isEmpty暂未兼容 '${type}' 类型, 默认返回false`)
-    return false
+<span class="cstat-no" title="statement not covered" >    if (type === 'object' &amp;&amp; Object.keys(input).length === 0) <span class="cstat-no" title="statement not covered" >return true</span></span>
+<span class="cstat-no" title="statement not covered" >    console.warn(`isEmpty暂未兼容 '${type}' 类型, 默认返回false`)</span>
+<span class="cstat-no" title="statement not covered" >    return false</span>
 }
 export default isEmpty
 &nbsp;</pre></td></tr></table></pre>
@@ -151,17 +151,17 @@ export default isEmpty
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Apr 25 2020 14:34:01 GMT+0800 (GMT+08:00)
+                at Sat Apr 25 2020 14:16:29 GMT+0800 (GMT+08:00)
             </div>
         </div>
-        <script src="prettify.js"></script>
+        <script src="../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="sorter.js"></script>
-        <script src="block-navigation.js"></script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
     </body>
 </html>
     

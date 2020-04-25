@@ -28,5 +28,9 @@ describe('test Session', () => {
         expect(Session.get(SK3)).toEqual(a)
         Session.set(SK3, a, -1)
         expect(Session.get(SK3)).toBeNull()
+        
+        Session.set(SK1)
+        expect(Session.get(SK1)).toBeNull()
+        
     })
 })

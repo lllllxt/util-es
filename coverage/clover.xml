@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587636446469" clover="3.2.0">
-  <project timestamp="1587636446469" name="All files">
-    <metrics statements="83" coveredstatements="83" conditionals="52" coveredconditionals="50" methods="17" coveredmethods="17" elements="152" coveredelements="150" complexity="0" loc="83" ncloc="83" packages="1" files="7" classes="7"/>
+<coverage generated="1587796441344" clover="3.2.0">
+  <project timestamp="1587796441345" name="All files">
+    <metrics statements="90" coveredstatements="90" conditionals="57" coveredconditionals="57" methods="18" coveredmethods="18" elements="165" coveredelements="165" complexity="0" loc="90" ncloc="90" packages="1" files="7" classes="7"/>
     <file name="cookies.js" path="E:\github\util-es\src\cookies.js">
       <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <line num="1" count="6" type="stmt"/>
@@ -24,14 +24,21 @@
       <line num="8" count="6" type="stmt"/>
     </file>
     <file name="isEmpty.js" path="E:\github\util-es\src\isEmpty.js">
-      <metrics statements="7" coveredstatements="7" conditionals="21" coveredconditionals="21" methods="1" coveredmethods="1"/>
-      <line num="6" count="6" type="stmt"/>
-      <line num="8" count="11" type="cond" truecount="4" falsecount="0"/>
-      <line num="10" count="9" type="cond" truecount="4" falsecount="0"/>
-      <line num="12" count="6" type="cond" truecount="4" falsecount="0"/>
-      <line num="14" count="4" type="cond" truecount="5" falsecount="0"/>
-      <line num="16" count="2" type="cond" truecount="4" falsecount="0"/>
-      <line num="17" count="1" type="stmt"/>
+      <metrics statements="14" coveredstatements="14" conditionals="26" coveredconditionals="26" methods="2" coveredmethods="2"/>
+      <line num="8" count="12" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="10" type="stmt"/>
+      <line num="11" count="10" type="cond" truecount="4" falsecount="0"/>
+      <line num="12" count="9" type="stmt"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="15" count="12" type="stmt"/>
+      <line num="17" count="12" type="cond" truecount="4" falsecount="0"/>
+      <line num="19" count="10" type="cond" truecount="4" falsecount="0"/>
+      <line num="21" count="7" type="cond" truecount="4" falsecount="0"/>
+      <line num="23" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="25" count="3" type="cond" truecount="4" falsecount="0"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
     </file>
     <file name="isObject.js" path="E:\github\util-es\src\isObject.js">
       <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -40,56 +47,56 @@
       <line num="8" count="10" type="cond" truecount="3" falsecount="0"/>
     </file>
     <file name="local.js" path="E:\github\util-es\src\local.js">
-      <metrics statements="25" coveredstatements="25" conditionals="11" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <metrics statements="25" coveredstatements="25" conditionals="11" coveredconditionals="11" methods="5" coveredmethods="5"/>
       <line num="6" count="6" type="stmt"/>
-      <line num="7" count="6" type="stmt"/>
-      <line num="8" count="6" type="stmt"/>
-      <line num="9" count="6" type="stmt"/>
-      <line num="10" count="6" type="cond" truecount="4" falsecount="0"/>
+      <line num="7" count="7" type="stmt"/>
+      <line num="8" count="7" type="stmt"/>
+      <line num="9" count="7" type="stmt"/>
+      <line num="10" count="7" type="cond" truecount="4" falsecount="0"/>
       <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="13" count="1" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
       <line num="16" count="1" type="stmt"/>
-      <line num="19" count="4" type="stmt"/>
-      <line num="21" count="6" type="stmt"/>
-      <line num="31" count="6" type="cond" truecount="0" falsecount="1"/>
-      <line num="32" count="3" type="stmt"/>
-      <line num="33" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
+      <line num="31" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="34" count="2" type="stmt"/>
       <line num="35" count="2" type="stmt"/>
       <line num="36" count="2" type="stmt"/>
       <line num="37" count="2" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="41" count="3" type="stmt"/>
-      <line num="42" count="3" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+      <line num="41" count="4" type="stmt"/>
+      <line num="42" count="4" type="stmt"/>
       <line num="49" count="6" type="stmt"/>
       <line num="50" count="1" type="cond" truecount="2" falsecount="0"/>
       <line num="57" count="1" type="stmt"/>
       <line num="58" count="1" type="stmt"/>
     </file>
     <file name="session.js" path="E:\github\util-es\src\session.js">
-      <metrics statements="25" coveredstatements="25" conditionals="11" coveredconditionals="10" methods="5" coveredmethods="5"/>
+      <metrics statements="25" coveredstatements="25" conditionals="11" coveredconditionals="11" methods="5" coveredmethods="5"/>
       <line num="6" count="6" type="stmt"/>
-      <line num="7" count="6" type="stmt"/>
-      <line num="8" count="6" type="stmt"/>
-      <line num="9" count="6" type="stmt"/>
-      <line num="10" count="6" type="cond" truecount="4" falsecount="0"/>
+      <line num="7" count="7" type="stmt"/>
+      <line num="8" count="7" type="stmt"/>
+      <line num="9" count="7" type="stmt"/>
+      <line num="10" count="7" type="cond" truecount="4" falsecount="0"/>
       <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="13" count="1" type="stmt"/>
       <line num="14" count="1" type="stmt"/>
       <line num="16" count="1" type="stmt"/>
-      <line num="19" count="4" type="stmt"/>
-      <line num="21" count="6" type="stmt"/>
-      <line num="31" count="6" type="cond" truecount="0" falsecount="1"/>
-      <line num="32" count="3" type="stmt"/>
-      <line num="33" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="19" count="5" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
+      <line num="31" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="4" type="stmt"/>
+      <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
       <line num="34" count="2" type="stmt"/>
       <line num="35" count="2" type="stmt"/>
       <line num="36" count="2" type="stmt"/>
       <line num="37" count="2" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="41" count="3" type="stmt"/>
-      <line num="42" count="3" type="stmt"/>
+      <line num="39" count="2" type="stmt"/>
+      <line num="41" count="4" type="stmt"/>
+      <line num="42" count="4" type="stmt"/>
       <line num="49" count="6" type="stmt"/>
       <line num="50" count="1" type="cond" truecount="2" falsecount="0"/>
       <line num="57" count="1" type="stmt"/>

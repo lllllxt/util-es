@@ -17,6 +17,7 @@ describe('test isEmpty', () => {
     describe('应为true', () => {
         test('空字符串', () => {
             expect(util.isEmpty('')).toBeTruthy()
+            expect(util.isEmpty(new String())).toBeTruthy()
         })
         test('空数组', () => {
             expect(util.isEmpty([])).toBeTruthy()

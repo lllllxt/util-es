@@ -28,5 +28,8 @@ describe('test Local', () => {
         expect(Local.get(SK3)).toEqual(a)
         Local.set(SK3, a, -1)
         expect(Local.get(SK3)).toBeNull()
+
+        Local.set(SK1)
+        expect(Local.get(SK1)).toBeNull()
     })
 })

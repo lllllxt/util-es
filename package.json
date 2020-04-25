@@ -1,13 +1,14 @@
 {
     "name": "util-es",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "js工具集",
     "main": "util.min.js",
     "scripts": {
         "start": "npm run build && npm run uglify && npm run test",
         "build": "rollup -c build/rollup.config.js -o util.js",
         "uglify": "rollup -c build/rollup.config.js -o util.min.js --uglify",
-        "test": "jest --collectCoverage"
+        "test": "jest --collectCoverage",
+        "test2": "jest isEmpty"
     },
     "repository": {
         "type": "git",
