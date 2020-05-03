@@ -1,4 +1,4 @@
-import { Cookies } from '../src/index.js'
+import { Cookies } from '../src/index.ts'
 describe('test Cookies', () => {
     const SK1 = '不带过期时间'
     const SK2 = '原生的'

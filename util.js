@@ -1,184 +1,199 @@
+/* util-es version 1.0.4, follow me on Github! @lllllxt */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (global = global || self, factory(global.util = {}));
 }(this, (function (exports) { 'use strict';
 
-    /**
-     * 获取sessionStorage
-     * @param key
-     * @returns {any}
-     */
-    var getSession = function getSession(key) {
-      var result = null;
-
-      var _session = JSON.parse(sessionStorage.getItem(key));
-
-      var isObj = Object.prototype.toString.call(_session) === '[object Object]';
-
-      if (isObj && _session.$$ExpiryTime) {
-        if (new Date().getTime() > new Date(_session.$$ExpiryTime).getTime()) {
-          // 过期
-          result = null;
-          sessionStorage.removeItem(key);
-        } else {
-          result = _session.data;
-        }
-      } else {
-        result = _session;
-      }
-
-      return result;
-    };
-    /**
-     * 设置sessionStorage (可存对象)
-     * @param key 键值
-     * @param dataSource 数据
-     * @param second 过期时间(s)
-     * @returns {any}
-     */
-
-
-    var setSession = function setSession(key) {
-      var dataSource = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var second = arguments.length > 2 ? arguments[2] : undefined;
-      var result = {};
-
-      if (second) {
-        var d = new Date();
-        d.setTime(d.getTime() + second * 1000);
-        result.data = dataSource;
-        result.$$ExpiryTime = d;
-      } else {
-        result = dataSource;
-      }
-
-      sessionStorage.setItem(key, JSON.stringify(result));
-      return result;
-    };
-    /**
-     * 移除sessionStorage
-     * @param key
-     */
-
-
-    var removeSession = function removeSession(key) {
-      key && sessionStorage.removeItem(key);
-    };
-
     var Session = {
-      get: getSession,
-      set: setSession,
-      remove: removeSession,
+      /**
+       * 获取对应key的session
+       * @param {string} key 键值
+       * @returns {any}
+       */
+      get: function get(key) {
+        var result = null;
+
+        var _session = JSON.parse(sessionStorage.getItem(key));
+
+        var isObj = Object.prototype.toString.call(_session) === '[object Object]';
+
+        if (isObj && _session.$$ExpiryTime) {
+          if (new Date().getTime() > new Date(_session.$$ExpiryTime).getTime()) {
+            // 过期
+            result = null;
+            sessionStorage.removeItem(key);
+          } else {
+            result = _session.data;
+          }
+        } else {
+          result = _session;
+        }
+
+        return result;
+      },
+
+      /**
+       * 设置sessionStorage (可存对象)
+       * @param {string} key 键值
+       * @param {string} dataSource 数据
+       * @param {number} second 过期时间(s)
+       * @returns {any}
+       */
+      set: function set(key) {
+        var dataSource = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        var second = arguments.length > 2 ? arguments[2] : undefined;
+        var result = {};
+
+        if (second) {
+          var d = new Date();
+          d.setTime(d.getTime() + second * 1000);
+          result.data = dataSource;
+          result.$$ExpiryTime = d;
+        } else {
+          result = dataSource;
+        }
+
+        sessionStorage.setItem(key, JSON.stringify(result));
+        return result;
+      },
+
+      /**
+       * 移除对应key的session
+       * @param {string} key 键值
+       */
+      remove: function remove(key) {
+        key && sessionStorage.removeItem(key);
+      },
+
+      /** 清空sessionStorage */
       clear: function clear() {
         return sessionStorage.clear();
       },
+
+      /**
+       * 获取sessionStorage中第n+1个的key
+       * @param {number} n
+       */
       key: function key(n) {
         return sessionStorage.key(n);
       }
     };
 
-    /**
-     * 获取localStorage
-     * @param key
-     * @returns {any}
-     */
-    var getLocal = function getLocal(key) {
-      var result = null;
-
-      var _local = JSON.parse(localStorage.getItem(key));
-
-      var isObj = Object.prototype.toString.call(_local) === '[object Object]';
-
-      if (isObj && _local.$$ExpiryTime) {
-        if (new Date().getTime() > new Date(_local.$$ExpiryTime).getTime()) {
-          // 过期
-          result = null;
-          localStorage.removeItem(key);
-        } else {
-          result = _local.data;
-        }
-      } else {
-        result = _local;
-      }
-
-      return result;
-    };
-    /**
-     * 设置localStorage (可存对象)
-     * @param key 键值
-     * @param dataSource 数据
-     * @param second 过期时间(s)
-     * @returns {any}
-     */
-
-
-    var setLocal = function setLocal(key) {
-      var dataSource = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var second = arguments.length > 2 ? arguments[2] : undefined;
-      var result = {};
-
-      if (second) {
-        var d = new Date();
-        d.setTime(d.getTime() + second * 1000);
-        result.data = dataSource;
-        result.$$ExpiryTime = d;
-      } else {
-        result = dataSource;
-      }
-
-      localStorage.setItem(key, JSON.stringify(result));
-      return result;
-    };
-    /**
-     * 移除localStorage
-     * @param key
-     */
-
-
-    var removeLocal = function removeLocal(key) {
-      key && localStorage.removeItem(key);
-    };
-
     var Local = {
-      get: getLocal,
-      set: setLocal,
-      remove: removeLocal,
+      /**
+       * 获取对应key的localStorage
+       * @param {string} key 键值
+       * @returns {any}
+       */
+      get: function get(key) {
+        var result = null;
+
+        var _local = JSON.parse(localStorage.getItem(key));
+
+        var isObj = Object.prototype.toString.call(_local) === '[object Object]';
+
+        if (isObj && _local.$$ExpiryTime) {
+          if (new Date().getTime() > new Date(_local.$$ExpiryTime).getTime()) {
+            // 过期
+            result = null;
+            localStorage.removeItem(key);
+          } else {
+            result = _local.data;
+          }
+        } else {
+          result = _local;
+        }
+
+        return result;
+      },
+
+      /**
+       * 设置localStorage (可存对象)
+       * @param {string} key 键值
+       * @param {string} dataSource 数据
+       * @param {number} second 过期时间(s)
+       * @returns {any}
+       */
+      set: function set(key) {
+        var dataSource = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+        var second = arguments.length > 2 ? arguments[2] : undefined;
+        var result = {};
+
+        if (second) {
+          var d = new Date();
+          d.setTime(d.getTime() + second * 1000);
+          result.data = dataSource;
+          result.$$ExpiryTime = d;
+        } else {
+          result = dataSource;
+        }
+
+        localStorage.setItem(key, JSON.stringify(result));
+        return result;
+      },
+
+      /**
+       * 移除对应key的localStorage
+       * @param {string} key 键值
+       */
+      remove: function remove(key) {
+        key && localStorage.removeItem(key);
+      },
+
+      /** 清空localStorage */
       clear: function clear() {
         return localStorage.clear();
       },
+
+      /**
+       * 获取localStorage中第n+1个的key
+       * @param {number} n
+       */
       key: function key(n) {
         return localStorage.key(n);
       }
     };
 
-    var setCookie = function setCookie(cname, cvalue, second) {
-      var d = new Date();
-      d.setTime(d.getTime() + second * 1000);
-      var expires = 'expires=' + d.toGMTString();
-      document.cookie = cname + '=' + cvalue + '; ' + expires;
-    };
-
-    var getCookie = function getCookie(cname) {
-      var name = cname + '=';
-      var ca = document.cookie.split(';');
-
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();
-        if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
-      }
-
-      return '';
-    };
-
-    var delCoolie = function delCoolie(cname) {
-      document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
-    };
-
     var Cookies = {
-      set: setCookie,
-      get: getCookie,
-      remove: delCoolie
+      /**
+       * 设置cookies
+       * @param {string} cname 键值
+       * @param {string} cvalue 数据
+       * @param {number} second 过期时间(s)
+       * @returns {void}
+       */
+      set: function set(cname, cvalue, second) {
+        var d = new Date();
+        d.setTime(d.getTime() + second * 1000);
+        var expires = 'expires=' + d.toUTCString();
+        document.cookie = cname + '=' + cvalue + '; ' + expires;
+      },
+
+      /**
+       * 获取对应key的cookies
+       * @param {string} cname 键值
+       * @returns {string}
+       */
+      get: function get(cname) {
+        var name = cname + '=';
+        var ca = document.cookie.split(';');
+
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i].trim();
+          if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+        }
+
+        return '';
+      },
+
+      /**
+       * 移除对应cname的cookies
+       * @param {string} cname 键值
+       */
+      remove: function remove(cname) {
+        document.cookie = cname + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+      }
     };
 
     function _typeof(obj) {
@@ -198,9 +213,9 @@
     }
 
     /**
-     * 判空
+     * 判断类型
      * @param {any} input
-     * @return { bollean }
+     * @return { string }
      */
     function getType(input) {
       if (input === null) return 'null';
@@ -208,6 +223,12 @@
       var type = Object.prototype.toString.call(input).slice(8, -1).toLowerCase();
       if (type === 'string' && _typeof(input) === 'object') return 'object';else return type;
     }
+    /**
+     * 判断传入数据是否为空字符或对象 ( {} [] Map Set), 返回 Boolean
+     * @param {any} input
+     * @return { boolean }
+     */
+
 
     var isEmpty = function isEmpty(input) {
       var type = getType(input); // null or undefined
@@ -226,8 +247,9 @@
     };
 
     /**
-     * 判断是否对对象
-     *
+     * 判断输入参数是否为对象(不包含null和undefined)
+     * @param {any} input
+     * @return {boolean}
      */
     var isObject = function isObject(input) {
       var _type = _typeof(input);
@@ -237,6 +259,12 @@
 
     /**
      * 这是来自某网友的代码, 由于时间太久了,我也忘了是在哪找的了 所以没办法标注出处
+     */
+
+    /**
+     * 生成并返回一个uuid
+     * @param {boolean} bar 是否带“ - ” 默认false
+     * @return {string} uuid
      */
     function uuid (bar) {
       var d = new Date().getTime();

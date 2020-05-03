@@ -1,4 +1,4 @@
-import { Local } from '../src/index.js'
+import { Local } from '../src/index.ts'
 describe('test Local', () => {
     const SK1 = '不带过期时间'
     const SK2 = '原生的'

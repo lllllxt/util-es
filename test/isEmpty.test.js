@@ -1,4 +1,4 @@
-import util from '../src/index.js'
+import util from '../src/index.ts'
 describe('test isEmpty', () => {
     describe('应为false', () => {
         test('空格', () => {

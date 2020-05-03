@@ -1,4 +1,4 @@
-import { isObject } from '../src/index.js'
+import { isObject } from '../src/index.ts'
 
 class A {}
 describe('test isObject', () => {

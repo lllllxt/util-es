@@ -1,4 +1,4 @@
-import { Session } from '../src/index.js'
+import { Session } from '../src/index.ts'
 describe('test Session', () => {
     const SK1 = '不带过期时间'
     const SK2 = '原生的'
