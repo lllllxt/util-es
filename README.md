@@ -69,7 +69,8 @@ remove(String key) | 移除对应key的Cookie
 方法 | 描述
 ---|---
 isEmpty(* param) | 判断传入数据是否为空字符或对象 ( ```{}``` ```[]``` ```Map``` ```Set```), 返回 Boolean
-uuid() | 生成并返回一个uuid(不带 ```-``` 的)
+isObject(* param) | 判断传入数据是否为对象 ( 不包含```null```和```undefined``` ), 返回 Boolean
+uuid(Boolean bar) | 生成并返回一个uuid ( bar：是否带 ```-```，默认false )
 
 
 ## 其他
